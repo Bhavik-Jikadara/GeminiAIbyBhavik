@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;1,200&family=Poppins:wght@300;400&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <title>Gemini | Google DeepMind</title>
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/gemini.ico') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='response.css') }}" />
+
+
+
+</head>
+
+<body>
+  <div class="main-container">
+    <div class="container-1 common-container">
+      <!-- Input Section -->
+      <form class="m-3" action="{{ url_for('generate')}}" method="post">
+        <h1>Get what you thought</h1>
+
+        <div class="input-group mb-3">
+          <input type="text" name="text" class="form-control" placeholder="Write a something text" aria-label="Year"
+            aria-describedby="basic-addon1" autocomplete="off" required>
+        </div>
+
+        <div class="mb-3 text-center">
+
+          <button style="width: max-content; margin-top: 0;" onclick="window.location.href = '/' ;"><a
+              style="color: white; text-decoration: none; font-size: 18px;"><i class="fa fa-home"></i></a></button>
+
+          <button type="submit" class="btn btn-primary">Run<img id="icon"
+              src="{{ url_for('static', filename='images/gemini.ico') }}" alt="Generate Icon" height="20px"
+              width="auto"></button>
+        </div>
+      </form>
+
+      <!-- Reponse Section -->
+      <div id="response-container" , class="scroll">
+        <div>
+          {{ gen_response }}
+        </div>
+      </div>
+    </div>
+</body>
+
+</html>

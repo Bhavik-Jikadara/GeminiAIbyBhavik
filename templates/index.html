@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/gemini.ico') }}" type="image/x-icon" />
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}" />
+    <title>Gemini AI by Bhavik</title>
+</head>
+
+<body>
+    <div class="welcome-container">
+        <!-- Welcome Message -->
+        <div class="welcome-message">
+            <p class="p-1">Welcome to the Gemini era</p>
+            <p class="p-2">Experience Google’s largest and most capable AI model</p>
+        </div>
+
+        <!-- Button -->
+        <button class="action-button" onclick="window.location.href = '/response' ;">Explore Gemini   <img id="icon"
+            src="{{ url_for('static', filename='images/gemini.ico') }}" alt="Generate Icon" height="20px"
+            width="auto"></button>
+    </div>
+</body>
+
+</html>
