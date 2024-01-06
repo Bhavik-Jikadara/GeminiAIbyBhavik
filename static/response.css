@@ -95,6 +95,7 @@ button:hover {
 
 #response-container {
   margin: 50px 25px 0px 25px;
+  padding: 10px;
   color: #ffffff;
   background-color: #04323d;
   text-align: left;
