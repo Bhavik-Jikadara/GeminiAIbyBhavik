@@ -1,12 +1,25 @@
 from flask import Flask, render_template, request
 import google.generativeai as genai
+import textwrap
+
+from IPython.display import display
+from IPython.display import Markdown
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
+
+def to_markdown(text):
+    text = text.replace('•', '  *')
+    return Markdown(textwrap.indent(text, '> ', predicate=lambda _: True))
+
 
 app = Flask(__name__)
 
 # setup your API_KEY
 genai.configure(
-    # Put the key in the GOOGLE_API_KEY
-    api_key="AIzaSyDK85o34hK764Jn_d25dYl0Q0I23Cxp8jA"
+    # Put the key in the GOOGLE_API_KEY or .env file
+    api_key=os.getenv("GOOGLE_API_KEY")
 )
 
 model = genai.GenerativeModel(model_name='gemini-pro')
@@ -27,7 +40,7 @@ def generate():
     if request.method == 'POST':
         text = request.form.get("text")
         response = model.generate_content(text)
-        
+
     return render_template('response.html', gen_response=response.text)
 
 

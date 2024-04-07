@@ -1,2 +1,5 @@
 flask
 google-generativeai
+ipython
+ipykernel
+python-dotenv
